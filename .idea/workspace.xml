@@ -7,7 +7,6 @@
     <list default="true" id="98c83b10-cde6-4a08-acf8-d6df8c5fa162" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LinearHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LinearHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Sizeof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Sizeof.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,7 @@
       <workItem from="1726725241450" duration="41000" />
       <workItem from="1727041579423" duration="987000" />
       <workItem from="1727221064180" duration="7402000" />
-      <workItem from="1727631923727" duration="2509000" />
+      <workItem from="1727631923727" duration="9655000" />
     </task>
     <servers />
   </component>
