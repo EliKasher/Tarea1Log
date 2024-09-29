@@ -15,18 +15,24 @@ public class LinearHash {
   // La tabla de hash se accede por val mod 2^t -> indice
   // A una lista, con 15 valores de rebalse máx
   public ArrayList<ArrayList<Long>> tablaHash;
-  public double avgAccess;
+  // El máximo de accesos promedio que puede realizarse
+  public double maxAvgAccess;
+  // El valor actual de accesos promedio realizados
+  public double actAvgAccess = 0;
+  // La cantidad de elementos que puede contener una página
+  public int elem = 1024/ Sizeof.sizeof(Long.class);
+
 
   /**
    * Crea una nueva tabla de Hash Lineal
    * @param capacity El máximo de páginas que pueda tener la tabla de hash
    * Un bloque/página tiene máximo 1024 bytes / 64 bits -> 16 values
    */
-  public LinearHash(int capacity, double avg) {
+  public LinearHash(int capacity, double maxAvg, int bytes) {
     pages = 1;
     maxPages = capacity;
     tablaHash = new ArrayList<>(maxPages);
-    avgAccess = avg;
+    maxAvgAccess = maxAvg;
   }
 
   /**
@@ -47,20 +53,13 @@ public class LinearHash {
   public boolean isEmpty() { return getSize() == 0; }
 
   /**
-   * @param key
-   * @return
-   */
-  public boolean contains(int key) {
-    return get(key) != null;
-  }
-
-  /**
    * @param key Recibe un valor aleatorio para generar el hash
    * @return Devuelve un valor aleatorio entre 0 y 2^64-1 para cualquier elemento key
+   * Es decir, entrega el índice de guardado del valor
    */
-  private long hash(long key) {
+  private int hash(long key) {
     // El valor se divide en mod 2^t -> 5 % 2^1 = 1 -> arr[1] = 5
-    return key % (long) Math.pow(2,t);
+    return (int) (key % Math.pow(2,t));
   }
 
   /**
@@ -69,31 +68,46 @@ public class LinearHash {
    */
   public void insert(long val) {
     // Calcula el indice donde se debería colocar el valor
-    long k = hash(val);
+    int k = hash(val);
 
-    do {
-      // Si k < pages, se inserta en tablaHash[k]
-      // Si hay rebalse se inserta de todas formas
-      // Si se supera el avgAccess se debe expandir
-      if (k < pages) {
-        tablaHash.get((int) k).add(val);
-      }
+    // Si se supera el avgAccess se debe expandir
+    if (actAvgAccess >= maxAvgAccess) {
+        expand();
+    } else {
+        // Si k < pages, se inserta en tablaHash[k]
+        // Si hay rebalse (mientras la cant elementos sea <= elem)
+        // se inserta de todas formas a la lista de rebalses
+        if (k < pages) {
+          if (tablaHash.get(k).size() <= elem) {
+            tablaHash.get(k).add(val);
+          } else { // sino, se debe realizar una expansión
+            // expandir tabla hash
+            expand();
+          }
+        }
 
-      // Si k >= p, se inserta en tablaHash[k-2^t]
-      if (k >= pages) {
-        long index = k - (long) Math.pow(2, t);
-        tablaHash.get((int) index).add(val);
-      }
+        // Si k >= p, se inserta en tablaHash[k-2^t]
+        // k aún no existe
+        if (k >= pages) {
+          int index = (int) (k - Math.pow(2, t));
 
-      pages = pages + 1;
+          tablaHash.get(index).add(val);
+        }
 
-      if (pages == (long) Math.pow(2,t+1)) {
-        t++;
+        // al finalizar la expansión
+        // pages = pages + 1;
+
+        // if (pages == (long) Math.pow(2,t+1)) {
+          //t++;
+        //}
       }
     }
 
-    // Do-while loop
-    // while part for condition check
-    while (i != tmp);
+  /**
+   * Realiza el proceso de expansión del Hash
+   */
+  public void expand() {
+
   }
+
 }

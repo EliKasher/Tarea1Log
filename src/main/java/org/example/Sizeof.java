@@ -32,18 +32,6 @@ public class Sizeof {
     if (dataType == double.class || dataType == Double.class) {
       return Double.SIZE;
     }
-    if (dataType == ArrayList.class || dataType == ArrayList.class) {
-      return 4; //Dejamos como default el tamaño de un puntero
-    }
-    if (dataType == Pair.class) {
-      return 2*Double.SIZE;
-    }
-    if (dataType == NodeSS.class) {
-      return sizeof(Pair.class) + sizeof(ArrayList.class);
-    }
-    if (dataType == NodeCP.class) {
-      return sizeof(Pair.class) + sizeof(ArrayList.class);
-    }
     return 4;
   }
 }
