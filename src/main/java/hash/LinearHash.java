@@ -3,7 +3,7 @@ package hash;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que describe y cumple las funciones de un Hash Lineal
  */
 public class LinearHash {
   // Cantidad actual de páginas
@@ -12,7 +12,7 @@ public class LinearHash {
   public int t = 0;
   // La tabla de hash se accede por val mod 2^t -> indice
   // A una lista, con 15 valores de rebalse máx
-  public ArrayList<ArrayList<Long>> tablaHash;
+  public ArrayList<ArrayList<Page>> tablaHash;
   // El máximo de accesos promedio que puede realizarse
   public double maxAvgAccess;
   // La cantidad de elementos que puede contener una página
@@ -35,7 +35,7 @@ public class LinearHash {
    */
   public LinearHash(double maxAvg) {
     pages = 1;
-    tablaHash = new ArrayList<>();
+    tablaHash = new ArrayList<>(pages);
     maxAvgAccess = maxAvg;
   }
 
@@ -133,6 +133,7 @@ public class LinearHash {
           // se inserta en la lista de rebalse (NO SE QUE ES EN NUESTRA TAREA AUN)
 
           // si no existe se crea
+
 
           // se recalcula el promedio de largos de listas de rebalse
         }

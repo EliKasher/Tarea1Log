@@ -5,7 +5,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase para leer un archivo de texto
+ */
 public class Reader {
+  /**
+   * Lee un archivo de texto con 2^limite números y los guarda en una lista
+   * @param filename El nombre del archivo leído
+   * @param list La lista donde se guardan los números
+   * @param limite La potencia a la que se eleva
+   */
   public void read(String filename, ArrayList<Long> list, int limite) {
     File fichero = new File(filename);
     Scanner s = null;
