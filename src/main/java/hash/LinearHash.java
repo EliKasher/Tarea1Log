@@ -25,9 +25,6 @@ public class LinearHash {
   // El valor actual de accesos promedio realizados
   // actAvgAccess = actAccess/inserts
   public int actAvgAccess = 0;
-  // El promedio de los largos de las listas de rebalse
-  // Se consideran como accesos extra
-  public int avgLenReb = 0;
   // El porcentaje de llenado promedio de las páginas
   public int avgFillPct = 0;
 
@@ -58,7 +55,7 @@ public class LinearHash {
    * Es decir, entrega el índice de guardado del valor
    */
   private int hash(long key) {
-    // El valor se divide en mod 2^t -> 5 % 2^1 = 1 -> arr[1] = 5
+    // El valor se divide en mod 2^t
     return (int) (key >> (int) Math.pow(2,t));
   }
 
@@ -81,8 +78,8 @@ public class LinearHash {
         res = true;
       } else {
         // se lee su lista de rebalse FALTA PROGRAMAR
-
-        actAccess += avgLenReb;
+        // se suma la cantidad de páginas de rebalse leídas
+        //actAccess += ;
       }
 
       actAccess++;
@@ -96,8 +93,8 @@ public class LinearHash {
         res = true;
       } else {
         // se busca en su lista de rebalse FALTA PROGRAMAR
-
-        actAccess += avgLenReb;
+        // se suma la cantidad de páginas de rebalse leídas
+        //actAccess += ;
       }
 
       actAccess++;
