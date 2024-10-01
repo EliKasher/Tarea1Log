@@ -10,34 +10,35 @@ public class LinearHash {
   public int pages;
   // La cantidad de bits significativos
   public int t = 0;
-  // Cantidad máxima de páginas
-  public int maxPages = (int) Math.floor(Math.pow(2, t));
   // La tabla de hash se accede por val mod 2^t -> indice
   // A una lista, con 15 valores de rebalse máx
   public ArrayList<ArrayList<Long>> tablaHash;
   // El máximo de accesos promedio que puede realizarse
   public double maxAvgAccess;
+  // La cantidad de elementos que puede contener una página
+  public int elem = 1024/ Sizeof.sizeof(Long.class);
+
   // La cantidad de accesos a memoria realizados
   public int actAccess = 0;
   // La cantidad de inserciones realizadas hasta el momento
   public int inserts = 0;
   // El valor actual de accesos promedio realizados
+  // actAvgAccess = actAccess/inserts
   public int actAvgAccess = 0;
   // El promedio de los largos de las listas de rebalse
+  // Se consideran como accesos extra
   public int avgLenReb = 0;
-  // La cantidad de elementos que puede contener una página
-  public int elem = 1024/ Sizeof.sizeof(Long.class);
-
+  // El porcentaje de llenado promedio de las páginas
+  public int avgFillPct = 0;
 
   /**
    * Crea una nueva tabla de Hash Lineal
-   * @param capacity El máximo de páginas que pueda tener la tabla de hash
+   * @param maxAvg El costo promedio máximo permitido para el Hash
    * Un bloque/página tiene máximo 1024 bytes / 64 bits -> 16 values
    */
-  public LinearHash(int capacity, double maxAvg, int bytes) {
+  public LinearHash(double maxAvg) {
     pages = 1;
-    maxPages = capacity;
-    tablaHash = new ArrayList<>(maxPages);
+    tablaHash = new ArrayList<>();
     maxAvgAccess = maxAvg;
   }
 
@@ -45,13 +46,6 @@ public class LinearHash {
    * @return La cantidad de páginas/bloques que tiene el hash
    */
   public int getSize() { return pages; }
-
-  /**
-   * @return Si se llegó al máximo de llenado del hash
-   */
-  public boolean isFull() {
-    return pages == maxPages;
-  }
 
   /**
    * @return True si está vacía
@@ -195,5 +189,4 @@ public class LinearHash {
   public void compact() {
 
   }
-
 }
