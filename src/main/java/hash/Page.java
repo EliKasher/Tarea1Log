@@ -55,7 +55,7 @@ public class Page {
     } else {
       // se inserta en la lista de rebalse (NO SE QUE ES EN NUESTRA TAREA AUN)
 
-      // si no existe se crea
+      // si no existe se crea y se actualiza la profundidad
 
 
       // se suma a los accesos cuantas listas de rebalse se acceden
