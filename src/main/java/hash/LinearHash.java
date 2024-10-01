@@ -1,4 +1,4 @@
-package org.example;
+package hash;
 
 import java.util.ArrayList;
 

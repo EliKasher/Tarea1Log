@@ -1,4 +1,4 @@
-package org.example;
+package hash;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,7 +26,7 @@ public class Main {
     //Hacemos un for sobre el size y agregamos numeros distintos random
     for (int j = 1; j < size+1; j++) {
       long x = (long) random.nextInt(size-1) + 1;
-      write.write("inputs/numbers_" + i + ".txt", Long.toString(j));
+      write.write("inputs/numbers.txt", Long.toString(j));
     }
   }
 
@@ -95,8 +95,8 @@ public class Main {
     // puntos de testeo, se guardarán en la variable numbers
 
     int potencia = 10;
-    
-    reader.read("inputs/numbers_" + potencia + ".txt", numbers, (int) Math.pow(2,potencia));
+
+    reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
     System.out.println("Números creados");
 
     // Creamos el nombre del archivo donde se guardarán los resultados de la potencia
