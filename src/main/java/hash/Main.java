@@ -3,6 +3,9 @@ package hash;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Clase Principal donde se realizan los testeos.
+ */
 public class Main {
   //Objetos para poder leer los inputs y queries, además de escribir los resultados
   static final Writer write = new Writer();
