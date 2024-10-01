@@ -1,4 +1,4 @@
-package org.example;
+package hash;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

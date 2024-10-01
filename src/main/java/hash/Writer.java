@@ -1,4 +1,4 @@
-package org.example;
+package hash;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
