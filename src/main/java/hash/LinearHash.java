@@ -16,7 +16,7 @@ public class LinearHash {
   // El máximo de accesos promedio que puede realizarse
   public double maxAvgAccess;
   // La cantidad de elementos que puede contener una página
-  public int elem = 1024/ Sizeof.sizeof(Long.class);
+  public int elem = 1024*8/ Sizeof.sizeof(Long.class);
 
   // La cantidad de accesos a memoria realizados
   public int actAccess = 0;
