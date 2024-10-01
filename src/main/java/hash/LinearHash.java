@@ -12,7 +12,7 @@ public class LinearHash {
   public int t = 0;
   // La tabla de hash se accede por val mod 2^t -> indice
   // A una lista, con 15 valores de rebalse máx
-  public ArrayList<ArrayList<Page>> tablaHash;
+  public ArrayList<Page> tablaHash;
   // El máximo de accesos promedio que puede realizarse
   public double maxAvgAccess;
   // La cantidad de elementos que puede contener una página
@@ -119,31 +119,28 @@ public class LinearHash {
       //Aumenta en 1 las inserciones
       inserts++;
 
+
+
       // Si k < pages, se inserta en tablaHash[k]
       // k existe
       if (k < pages) {
-        // Si no hay rebalse (mientras la cant elementos sea <= elem)
-        // se inserta a la página
-        if (tablaHash.get(k).size() <= elem) {
-          tablaHash.get(k).add(val);
+        // Extraemos la página donde debemos insertar
+        Page act_page = tablaHash.get(k);
 
-          // Como se escribe, aumenta en 1 las I/Os
-          actAccess++;
-        } else {
-          // se inserta en la lista de rebalse (NO SE QUE ES EN NUESTRA TAREA AUN)
-
-          // si no existe se crea
-
-
-          // se recalcula el promedio de largos de listas de rebalse
-        }
+        // Se añade el elemento
+        actAccess += act_page.add_to_page(val);
       }
 
       // Si k >= p, se inserta en tablaHash[k-2^t]
       // k aún no existe
       if (k >= pages) {
         int index = (int) (k - Math.pow(2, t));
-        tablaHash.get(index).add(val);
+
+        // Extraemos la página donde debemos insertar
+        Page act_page = tablaHash.get(index);
+
+        // Añadimos el valor
+        act_page.add_to_page(val);
 
         // Como se escribe, aumenta en 1 las I/Os
         actAccess++;
