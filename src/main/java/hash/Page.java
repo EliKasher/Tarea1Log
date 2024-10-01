@@ -58,7 +58,7 @@ public class Page {
       // si no existe se crea
 
 
-      // se recalcula el promedio de largos de listas de rebalse
+      // se suma a los accesos cuantas listas de rebalse se acceden
 
     }
 
