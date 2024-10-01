@@ -10,11 +10,14 @@ public class Page {
   public int elem = 1024*8/ Sizeof.sizeof(Long.class);
   // La página
   public ArrayList<Long> page;
+  // Su página de rebalse asociada
   public ArrayList<Page> rebalse;
 
+  /**
+   * El constructor de una página
+   */
   public Page() {
     page = new ArrayList<>(elem);
-    rebalse = new ArrayList<>();
   }
 
   /**
