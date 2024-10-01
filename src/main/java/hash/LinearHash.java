@@ -59,7 +59,7 @@ public class LinearHash {
    */
   private int hash(long key) {
     // El valor se divide en mod 2^t -> 5 % 2^1 = 1 -> arr[1] = 5
-    return (int) (key % Math.pow(2,t));
+    return (int) (key >> (int) Math.pow(2,t));
   }
 
   /**
@@ -101,15 +101,6 @@ public class LinearHash {
       }
 
       actAccess++;
-    }
-
-    actAvgAccess = actAccess / inserts;
-
-    // Finalmente, se recalculan los accesos promedios
-    // Si pasa el costo promedio, hay expansión
-    if (actAvgAccess > maxAvgAccess) {
-      int nextPage = (int) (pages - Math.pow(2, t));
-      expand(nextPage);
     }
 
     return res;
@@ -159,6 +150,15 @@ public class LinearHash {
         // Como se escribe, aumenta en 1 las I/Os
         actAccess++;
       }
+    }
+
+    actAvgAccess = actAccess / inserts;
+
+    // Finalmente, se recalculan los accesos promedios
+    // Si pasa el costo promedio, hay expansión
+    if (actAvgAccess > maxAvgAccess) {
+      int nextPage = (int) (pages - Math.pow(2, t));
+      expand(nextPage);
     }
   }
 
