@@ -78,6 +78,12 @@ public class Main {
    * sobre cada uno.
    */
   public static void main(String[] args) {
+    // Esto no se debe volver a ejecutar si es que ya se tiene el archivo numbers_potencia.txt, pues
+    // el proceso es bastante largo y sería innecesario (por esto se deja comentado)
+    // Generamos los numeros para 2^potencia (Se realiza 1 vez por potencia testeada)
+    // Basta crear un archivo para 24 y para testear el resto, se lee hasta la línea 2^i
+    //generateTestingNumbers(24);
+
     //-----TESTEO PARA INPUT DE TAMAÑO 2^potencia-----
     // Creamos los c_max
     // createCMax();
@@ -87,13 +93,9 @@ public class Main {
 
     // Se lee el listado de números del archivo 'numbers_i.txt' para obtener los 2^i
     // puntos de testeo, se guardarán en la variable numbers
+
     int potencia = 10;
-
-    // Esto no se debe volver a ejecutar si es que ya se tiene el archivo numbers_potencia.txt, pues
-    // el proceso es bastante largo y sería innecesario (por esto se deja comentado)
-    // Generamos los numeros para 2^potencia (Se realiza 1 vez por potencia testeada)
-    //generateTestingNumbers(potencia);
-
+    
     reader.read("inputs/numbers_" + potencia + ".txt", numbers, (int) Math.pow(2,potencia));
     System.out.println("Números creados");
 
