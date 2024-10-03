@@ -11,7 +11,7 @@ public class Page {
   // La página
   public ArrayList<Long> page;
   // Su página de rebalse asociada
-  public ArrayList<Page> rebalse;
+  public Page rebalse;
 
   /**
    * El constructor de una página
@@ -21,16 +21,61 @@ public class Page {
   }
 
   /**
-   *
+   * @param value El valor buscado en la página
+   * @return Si se encuentra o no
    */
-  public void add_rebalse() {
-    rebalse.add(this);
+  public boolean contains(long value){
+    return page.contains(value);
   }
 
   /**
-   * @return
+   * @param value EL valor buscado
+   * @return La cantidad de listas de rebalse revisadas
    */
-  public ArrayList<Page> get_rebalse() {
+  public ArrayList<Integer> rebalseContains(long value) {
+    ArrayList<Integer> res = new ArrayList<>(2);
+
+    // Ya se está accediendo al primer rebalse
+    int access = 1;
+
+    // El rebalse inicial
+    Page actRebalse = getRebalse();
+
+    // Mientras no se encuentre o quedemos sin rebalse
+    while(actRebalse != null) {
+      // Si se encuentra se devuelven los accesos realizados
+      if (actRebalse.contains(value)) {
+        // se configura la respuesta
+        res.add(0, 1);
+        res.add(1, access);
+
+        return res;
+      }
+
+      // sino se revisa el rebalse siguiente
+      actRebalse = actRebalse.getRebalse();
+
+      // Se suma 1 acceso
+      access++;
+    }
+    // se configura la respuesta
+    res.add(0, 0);
+    res.add(1, access);
+
+    return res;
+  }
+
+  /**
+   *
+   */
+  public void addRebalse() {
+
+  }
+
+  /**
+   * @return La página de rebalse de esta página
+   */
+  public Page getRebalse() {
     return rebalse;
   }
 
@@ -41,8 +86,8 @@ public class Page {
    * @param value El valor añadido
    * @return La cantidad de I/Os realizadas
    */
-  public int add_to_page(Long value) {
-    int ios = 0;
+  public int addToPage(Long value) {
+    int accesos = 0;
 
     // Si no hay rebalse (mientras la cant elementos sea <= elem)
     // se inserta a la página
@@ -50,18 +95,25 @@ public class Page {
       page.add(value);
 
       // Como se escribe, aumenta en 1 las I/Os
-      ios++;
+      // se suma a los accesos cuantas listas de rebalse se acceden
+      accesos++;
 
     } else {
-      // se inserta en la lista de rebalse (NO SE QUE ES EN NUESTRA TAREA AUN)
+      Page actReb = getRebalse();
 
+      // se inserta en la lista de rebalse
       // si no existe se crea y se actualiza la profundidad
+      if (actReb != null) {
+        // se añade a su página
+        actReb.addToPage(value);
 
+      } else { // no existe el rebalse aún
+        rebalse = new Page();
 
-      // se suma a los accesos cuantas listas de rebalse se acceden
-
+        rebalse.addToPage(value);
+      }
     }
 
-    return ios;
+    return accesos;
   }
 }

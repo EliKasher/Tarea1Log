@@ -36,11 +36,11 @@ public class Main {
   /**
    * Crea un Hashing Lineal para cada c_max en la lista de c_max
    */
-  public static ArrayList<LinearHash> createHashes() {
+  public static ArrayList<LinearHash> createHashes(int N) {
     ArrayList<LinearHash> hashes = new ArrayList<>();
 
     for (Integer integer : c_max_test) {
-      hashes.add(new LinearHash(integer));
+      hashes.add(new LinearHash(integer, N));
     }
 
     return hashes;
@@ -91,13 +91,14 @@ public class Main {
     // Creamos los c_max
     // createCMax();
 
-    // Crea los hashes para todos los c_max
-    createHashes();
-
     // Se lee el listado de números del archivo 'numbers_i.txt' para obtener los 2^i
     // puntos de testeo, se guardarán en la variable numbers
 
     int potencia = 10;
+    int N = (int) Math.pow(2,potencia);
+
+    // Crea los hashes para todos los c_max
+    createHashes(N);
 
     reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
     System.out.println("Números creados");

@@ -1,11 +1,14 @@
 package hash;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Clase que describe y cumple las funciones de un Hash Lineal
  */
 public class LinearHash {
+  // Random
+  Random random = new Random();
   // Cantidad actual de páginas
   public int pages;
   // La cantidad de bits significativos
@@ -13,6 +16,8 @@ public class LinearHash {
   // La tabla de hash se accede por val mod 2^t -> indice
   // A una lista, con 15 valores de rebalse máx
   public ArrayList<Page> tablaHash;
+  // La lista de llaves
+  public ArrayList<Integer> keys;
   // El máximo de accesos promedio que puede realizarse
   public double maxAvgAccess;
   // La cantidad de elementos que puede contener una página
@@ -31,12 +36,19 @@ public class LinearHash {
   /**
    * Crea una nueva tabla de Hash Lineal
    * @param maxAvg El costo promedio máximo permitido para el Hash
-   * Un bloque/página tiene máximo 1024 bytes / 64 bits -> 16 values
+   * @param N El número máximo de elementos que se insertan
+   * Un bloque/página tiene máximo 1024*8 bits / 64 bits
    */
-  public LinearHash(double maxAvg) {
+  public LinearHash(double maxAvg, int N) {
     pages = 1;
     tablaHash = new ArrayList<>(pages);
     maxAvgAccess = maxAvg;
+    keys = new ArrayList<>(N);
+
+    // Se crea el hash
+    for (int i = 0; i < N; i++) {
+      keys.add(i,random.nextInt((int) Math.pow(2, 64) - 1));
+    }
   }
 
   /**
@@ -50,13 +62,13 @@ public class LinearHash {
   public boolean isEmpty() { return getSize() == 0; }
 
   /**
-   * @param key Recibe un valor aleatorio para generar el hash
-   * @return Devuelve un valor aleatorio entre 0 y 2^64-1 para cualquier elemento key
-   * Es decir, entrega el índice de guardado del valor
+   * @param value Recibe el valor a acomodar para darle un hash
+   * @return La casilla keys[value] que contiene un número aleatorio entre
+   * 0 y 2^64-1, que señala la página a la que irá el valor.
    */
-  private int hash(long key) {
-    // El valor se divide en mod 2^t
-    return (int) (key >> (int) Math.pow(2,t));
+  private int hash(long value) {
+    // h[value] -> hash de value
+    return keys.get((int) value);
   }
 
   /**
@@ -64,42 +76,45 @@ public class LinearHash {
    */
   public boolean get(long val) {
     // Calcula el indice donde debería estar el valor
-    int k = hash(val);
-    boolean res = false;
+    int k = hash(val) % (int) Math.pow(2,t);
 
-    // Costo de búsqueda = 1 + largo promedio de listas de rebalse
-    // AUN NO SE QUE ES UNA LISTA DE REBALSE
-
+    // Costo de búsqueda = 1 + largo lista de rebalse
     if (k < pages) { // la pag existe y se lee
-      // se lee la página
-      if (tablaHash.get(k).contains(val)) {
-        // se lee 1 pag, por lo cual aumentan los accesos
-
-        res = true;
-      } else {
-        // se lee su lista de rebalse FALTA PROGRAMAR
-        // se suma la cantidad de páginas de rebalse leídas
-        //actAccess += ;
-      }
-
-      actAccess++;
-
-    } if (k >= pages) { // la pag. k aun no existe
-      // se busca en k-2^t
-      int index = (int) (k - Math.pow(2, t));
-
-      // se lee 1 pag, por lo que aumentan los accesos
-      if (tablaHash.get(index).contains(val)) {
-        res = true;
-      } else {
-        // se busca en su lista de rebalse FALTA PROGRAMAR
-        // se suma la cantidad de páginas de rebalse leídas
-        //actAccess += ;
-      }
-
-      actAccess++;
+      return valueExists(val, k);
     }
 
+    // la pag. k aun no existe
+    // se busca en k-2^t
+    int index = (int) (k - Math.pow(2, t));
+
+    return valueExists(val, index);
+  }
+
+  /**
+   * @param val El valor buscado
+   * @param index El índice donde se busca
+   * @return Si existe el valor val en el lugar del hash que le corresponde.
+   */
+  private boolean valueExists(long val, int index) {
+    boolean res = false;
+
+    // Si está en la página
+    if (tablaHash.get(index).contains(val)) {
+      res = true;
+    } else {
+      // se busca en su lista de rebalse
+      // se suma la cantidad de páginas de rebalse leídas
+      int rebAccess = tablaHash.get(index).rebalseContains(val).get(1);
+
+      actAccess += rebAccess;
+
+      // Se revisa si fue encontrado el elemento
+      if (tablaHash.get(index).rebalseContains(val).get(0) == 1) {
+        res = true;
+      }
+    }
+
+    actAccess++;
     return res;
   }
 
@@ -109,7 +124,7 @@ public class LinearHash {
    */
   public void insert(long val) {
     // Calcula el indice donde se debería colocar el valor
-    int k = hash(val);
+    int k = hash(val) % (int) Math.pow(2, t);
 
     // Se verifica la existencia del elemento en la tabla de Hash
     boolean exists = get(val);
@@ -119,16 +134,14 @@ public class LinearHash {
       //Aumenta en 1 las inserciones
       inserts++;
 
-
-
       // Si k < pages, se inserta en tablaHash[k]
       // k existe
       if (k < pages) {
         // Extraemos la página donde debemos insertar
-        Page act_page = tablaHash.get(k);
+        Page actPage = tablaHash.get(k);
 
         // Se añade el elemento
-        actAccess += act_page.add_to_page(val);
+        actAccess += actPage.addToPage(val);
       }
 
       // Si k >= p, se inserta en tablaHash[k-2^t]
@@ -137,10 +150,10 @@ public class LinearHash {
         int index = (int) (k - Math.pow(2, t));
 
         // Extraemos la página donde debemos insertar
-        Page act_page = tablaHash.get(index);
+        Page actPage = tablaHash.get(index);
 
         // Añadimos el valor
-        act_page.add_to_page(val);
+        actPage.addToPage(val);
 
         // Como se escribe, aumenta en 1 las I/Os
         actAccess++;
@@ -153,6 +166,7 @@ public class LinearHash {
     // Si pasa el costo promedio, hay expansión
     if (actAvgAccess > maxAvgAccess) {
       int nextPage = (int) (pages - Math.pow(2, t));
+
       expand(nextPage);
     }
   }
@@ -164,11 +178,13 @@ public class LinearHash {
    * @param expPage La página a expandir
    */
   public void expand(int expPage) {
+    // se recorren los elementos de la pág. y sus rebalses
+    // y se insertan en h(x) % 2^t+1 -> p y p-2^t
 
-    // expansion de expPage
+
 
     // compactar p - 2^t
-    compact();
+    compact(expPage);
 
     // al finalizar la expansión
     pages = pages + 1;
@@ -179,9 +195,8 @@ public class LinearHash {
   }
 
   /**
-   * Compacta los elementos de pages - 2^t y se eliminan las listas de rebalse innecesarias
+   * Compacta los elementos de compPage y se eliminan las listas de rebalse innecesarias
    */
-  public void compact() {
-
+  public void compact(int compPage) {
   }
 }
