@@ -104,12 +104,12 @@ public class LinearHash {
     } else {
       // se busca en su lista de rebalse
       // se suma la cantidad de páginas de rebalse leídas
-      int rebAccess = tablaHash.get(index).rebalseContains(val).get(1);
+      ArrayList<Integer> rebAccess = tablaHash.get(index).rebalseContains(val);
 
-      actAccess += rebAccess;
+      actAccess += rebAccess.get(1);
 
       // Se revisa si fue encontrado el elemento
-      if (tablaHash.get(index).rebalseContains(val).get(0) == 1) {
+      if (rebAccess.get(0) == 1) {
         res = true;
       }
     }
@@ -180,7 +180,6 @@ public class LinearHash {
   public void expand(int expPage) {
     // se recorren los elementos de la pág. y sus rebalses
     // y se insertan en h(x) % 2^t+1 -> p y p-2^t
-
 
 
     // compactar p - 2^t
