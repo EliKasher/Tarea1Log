@@ -66,17 +66,17 @@ public class Page {
   }
 
   /**
-   *
-   */
-  public void addRebalse() {
-
-  }
-
-  /**
    * @return La página de rebalse de esta página
    */
   public Page getRebalse() {
     return rebalse;
+  }
+
+  /**
+   * @return La página principal con sus elementos
+   */
+  public ArrayList<Long> getPage() {
+    return page;
   }
 
   /**
