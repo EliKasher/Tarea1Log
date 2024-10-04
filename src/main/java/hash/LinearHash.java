@@ -175,11 +175,22 @@ public class LinearHash {
    * Realiza el proceso de expansión del Hash
    * Lee la página expPage-2^t con sus elementos y
    * Los re-inserta en hash(2^t+1)
+   * Aumenta el tamaño de la tabla a 2^t+1
    * @param expPage La página a expandir
    */
   public void expand(int expPage) {
     // se recorren los elementos de la pág. y sus rebalses
     // y se insertan en h(x) % 2^t+1 -> p y p-2^t
+
+    Page exp = tablaHash.get(expPage);
+    Page newPage = new Page();
+
+    for (int i=0; i<exp.getPage().size(); i++) {
+      exp.getPage().get(i);
+    }
+
+    // Calcula el indice donde se debería colocar el valor
+    int k = hash(val) % (int) Math.pow(2, t+1);
 
 
     // compactar p - 2^t
