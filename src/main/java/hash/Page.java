@@ -108,9 +108,9 @@ public class Page {
         actReb.addToPage(value);
 
       } else { // no existe el rebalse aún
-        rebalse = new Page();
+        actReb = new Page();
 
-        rebalse.addToPage(value);
+        actReb.addToPage(value);
       }
     }
 
