@@ -22,6 +22,7 @@ public class LinearHash {
   public double maxAvgAccess;
   // La cantidad de elementos que puede contener una página
   public int elem = 1024 * 8 / Sizeof.sizeof(Long.class);
+  // La suma de los porcentajes de llenado de cada pagina
 
   // La cantidad de accesos a memoria realizados
   public int actAccess = 0;
@@ -261,6 +262,20 @@ public class LinearHash {
       comp.rebalse = rebalsePage.getRebalse();
     }
   }
+  public double calculateAvgFillPct() {
+    if (pages == 0) return 0.0;  // Evitar división por cero
+
+    double sumFillPct = 0.0;
+
+    //recorremos cada pagina y sumamos su porcentaje de llenado
+    for (Page page: tablaHash) {
+      sumFillPct += page.calculateFillPct();
+    }
+
+    // Calculammos y retornamos el promedio
+    return (double) sumFillPct / pages;
+  }
+
 }
 
 

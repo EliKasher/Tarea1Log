@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="98c83b10-cde6-4a08-acf8-d6df8c5fa162" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/inserts_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/inserts_10.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hash/LinearHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/LinearHash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hash/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Page.java" afterDir="false" />
     </list>
-    <list id="580adec2-230a-4793-a4a8-af85095c928c" name="Changes by vicen" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Main.java" afterDir="false" />
-    </list>
+    <list id="580adec2-230a-4793-a4a8-af85095c928c" name="Changes by vicen" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,20 +26,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/hash/Main.java">
-      <ranges>
-        <range start1="31" end1="32" start2="31" end2="32" changelist="580adec2-230a-4793-a4a8-af85095c928c" />
-        <range start1="47" end1="47" start2="47" end2="63" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="77" end1="77" start2="93" end2="94" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="87" end1="88" start2="104" end2="105" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="91" end1="92" start2="108" end2="109" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="99" end1="101" start2="116" end2="119" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="112" end1="112" start2="130" end2="133" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-        <range start1="114" end1="114" start2="135" end2="137" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -119,7 +104,7 @@
       <workItem from="1727899210724" duration="14422000" />
       <workItem from="1727973206625" duration="12422000" />
       <workItem from="1728060657671" duration="3463000" />
-      <workItem from="1728166450362" duration="32906000" />
+      <workItem from="1728166450362" duration="45844000" />
     </task>
     <servers />
   </component>
@@ -133,26 +118,13 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/hash/LinearHash.java</url>
-          <line>194</line>
-          <properties class="hash.LinearHash" method="expand">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hash/Main.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="tablaHash" language="JAVA" />
-        <watch expression="tablaHash" language="JAVA" />
+        <watch expression="((LinearHash)this).pages" language="JAVA" custom="hash.LinearHash" />
+        <watch expression="((LinearHash)this).tablaHash" custom="hash.LinearHash" />
+        <watch expression="((LinearHash)this).tablaHash" custom="hash.LinearHash" />
       </configuration>
     </watches-manager>
   </component>

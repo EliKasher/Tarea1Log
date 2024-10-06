@@ -51,13 +51,21 @@ public class Main {
    */
   public static void createCMax() {
     // Definir c_max según los tamaños de prueba
-    //c_max_test.add(1);
+    c_max_test.add(1);
     c_max_test.add(2);
     c_max_test.add(3);
-    c_max_test.add(6);
+    c_max_test.add(4);
+    c_max_test.add(5);
+    c_max_test.add(8);
     c_max_test.add(10);
-    //c_max_test.add(15);
-    //c_max_test.add(20);
+    c_max_test.add(20);
+    c_max_test.add(40);
+    c_max_test.add(60);
+    c_max_test.add(500);
+    c_max_test.add(1000);
+    c_max_test.add(10000);
+    c_max_test.add(1000000);
+    c_max_test.add(1000000000);
   }
 
 
@@ -85,7 +93,7 @@ public class Main {
       // Se considera % llenado de páginas vs actAvgAccess
       write.write(filename, "C_max " + c_max_test.get(i));
       write.write(filename, "Accesos Promedio Reales: " + act_hash.actAvgAccess);
-      write.write(filename, "Porcentaje Promedio Llenado: " + act_hash.avgFillPct + "%");
+      write.write(filename, "Porcentaje Promedio Llenado: " + act_hash.calculateAvgFillPct() + "%");
       write.write(filename, "+++++++++++++++++++++++++++++++++++++++++");
 
       System.out.println("Inserciones c_max" + c_max_test.get(i) + "listas");
@@ -111,26 +119,27 @@ public class Main {
     // Se lee el listado de números del archivo 'numbers_i.txt' para obtener los 2^i
     // puntos de testeo, se guardarán en la variable numbers
 
-    int potencia = 10;
-    int N = (int) Math.pow(2,potencia);
+    for (int potencia = 10; potencia <= 24; potencia++) {
+      int N = (int) Math.pow(2, potencia);
 
-    // Asignamos la lista generada por createHashes a la variable global hashes
-    hashes.clear(); // Limpiamos la lista global de hashes antes de añadir nuevos
-    hashes.addAll(createHashes(N)); // Añadimos los hashes generados
+      // Asignamos la lista generada por createHashes a la variable global hashes
+      hashes.clear(); // Limpiamos la lista global de hashes antes de añadir nuevos
+      hashes.addAll(createHashes(N)); // Añadimos los hashes generados
 
-    reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
-    System.out.println("Números creados");
+      reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
+      System.out.println("Números creados");
 
-    // Creamos el nombre del archivo donde se guardarán los resultados de la potencia
-    String filename = "results/inserts_" + potencia + ".txt";
+      // Creamos el nombre del archivo donde se guardarán los resultados de la potencia
+      String filename = "results/inserts_" + potencia + ".txt";
 
-    //Realizamos las inserciones
-    System.out.println("Inicio inserciones");
-    insertTesting(filename);
-    System.out.println("Inserciones listas");
+      //Realizamos las inserciones
+      System.out.println("Inicio inserciones para potencia: " + potencia);
+      insertTesting(filename);
+      System.out.println("Inserciones listas para potencia: " + potencia);
 
 
 
+  }
   }
 }
 

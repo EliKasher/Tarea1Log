@@ -12,12 +12,14 @@ public class Page {
   public ArrayList<Long> page;
   // Su página de rebalse asociada
   public Page rebalse;
+  public int fillPct;
 
   /**
    * El constructor de una página
    */
   public Page() {
     page = new ArrayList<>(elem);
+    this.fillPct = 0;
   }
 
   /**
@@ -108,12 +110,19 @@ public class Page {
         actReb.addToPage(value);
 
       } else { // no existe el rebalse aún
-        actReb = new Page();
+        rebalse = new Page();
 
-        actReb.addToPage(value);
+        rebalse.addToPage(value);
+        // tablaHash.add(new Page()); // Agregamos la pagina inicial
       }
     }
 
     return accesos;
+  }
+
+  public double calculateFillPct() {
+    // numero de elementos en la pagina dividido por el maximo de elementos
+
+    return (Math.min(((double) page.size()/elem)*100 , 100));
   }
 }
