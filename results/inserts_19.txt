@@ -54,3 +54,7 @@ C_max 1000000
 Accesos Promedio Reales: 2706
 Porcentaje Promedio Llenado: 100.0%
 +++++++++++++++++++++++++++++++++++++++++
+C_max 1000000000
+Accesos Promedio Reales: 2706
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
