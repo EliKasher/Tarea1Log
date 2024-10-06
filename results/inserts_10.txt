@@ -1,0 +1,113 @@
+
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 6
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 2
+Porcentaje Promedio Llenado: 0%
++++++++++++++++++++++++++++++++++++++++++

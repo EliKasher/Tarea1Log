@@ -7,7 +7,11 @@
     <list default="true" id="98c83b10-cde6-4a08-acf8-d6df8c5fa162" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hash/LinearHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/LinearHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Writer.java" afterDir="false" />
+    </list>
+    <list id="580adec2-230a-4793-a4a8-af85095c928c" name="Changes by vicen" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/hash/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hash/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +28,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/hash/Main.java">
+      <ranges>
+        <range start1="31" end1="32" start2="31" end2="32" changelist="580adec2-230a-4793-a4a8-af85095c928c" />
+        <range start1="47" end1="47" start2="47" end2="63" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="77" end1="77" start2="93" end2="94" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="87" end1="88" start2="104" end2="105" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="91" end1="92" start2="108" end2="109" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="99" end1="101" start2="116" end2="119" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="112" end1="112" start2="130" end2="133" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+        <range start1="114" end1="114" start2="135" end2="137" changelist="98c83b10-cde6-4a08-acf8-d6df8c5fa162" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -33,28 +54,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "eve",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hash.Main" />
+      <module name="Tarea1Log" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hash.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -76,10 +119,41 @@
       <workItem from="1727899210724" duration="14422000" />
       <workItem from="1727973206625" duration="12422000" />
       <workItem from="1728060657671" duration="3463000" />
+      <workItem from="1728166450362" duration="32906000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/hash/LinearHash.java</url>
+          <line>194</line>
+          <properties class="hash.LinearHash" method="expand">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hash/Main.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="tablaHash" language="JAVA" />
+        <watch expression="tablaHash" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
