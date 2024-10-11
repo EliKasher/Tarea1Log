@@ -1,6 +1,60 @@
-# Tarea 1 
 
-Este proyecto contiene los archivos necesarios para poder realizar búsquedas en M-Trees construídos por los algoritmos Ciaccia-Patella (CP) y Sexton-Swinbank (SS).
+# Tarea 1 : Hashing Lineal
+
+Este proyecto implementa una simulación de hashing lineal para analizar su eficiencia bajo distintas configuraciones de hiperparámetros. El objetivo es medir el costo real de inserciones y compararlo con un costo máximo controlado durante la operación de inserción, así como analizar la relación entre el llenado de las páginas y el costo de realizar estas operaciones.
+
+## Contenido
+
+1. LinearHash: Clase que representa la tabla de hash lineal
+2. Page: Clase que representa cada pagina de la tabla hash
+3. Main: Clase principal que realiza pruebas y gestiona la entrada y salida de datos
+
+## Descripcion de la Tabla de Hash Lineal
+
+La tabla hash lineal es una estructura de datos que organiza elementos para permitir accesos rápidos. Las características principales de esta implementación son:
+
+1. Colisiones: Se manejan mediante listas de rebalse.
+2. Expansión Dinámica: La tabla hash se expande automáticamente cuando el costo promedio de acceso supera un límite predefinido (maxAvgAccess).
+3. Porcentaje de Llenado Promedio: Se calcula el porcentaje de llenado de las páginas y se ajusta según la expansión.
+
+## Estructura de Clases
+
+### Linear Hash
+
+Esta clase implementa la logica principal del hash lineal:
+
+    Atributos:
+        1. pages: Cantidad actual de páginas.
+        2. t: Cantidad de bits significativos para el cálculo del índice.
+        3. tablaHash: Lista de páginas.
+        4. keys: Lista de claves para el hashing.
+        5. maxAvgAccess: Costo promedio máximo permitido.
+        6. elem: Cantidad de elementos por página.
+        7. actAccess, inserts, actAvgAccess, avgFillPct: Contadores y porcentajes relacionados con accesos e inserciones.
+
+    Metodos principales
+        1. insert(long val): Inserta un valor en la tabla hash.
+        2. get(long val): Busca un valor en la tabla hash.
+        3. expand(int expPage): Expande la tabla hash si es necesario.
+        4. compact(int compPage): Compacta las páginas y elimina listas de rebalse innecesarias.
+        5. calculateAvgFillPct(): Calcula el porcentaje de llenado promedio de las páginas.
+
+### Page
+
+Esta clase representa cada página en la tabla hash y maneja la lógica de inserción y búsqueda de valores. Contiene métodos para:
+
+    1. Agregar valores a la página.
+    2. Verificar si un valor existe en la página.
+    3. Manejar listas de rebalse.
+
+
+### Main
+
+La clase principal donde se realizan pruebas:
+
+    1. Genera números de prueba y los inserta en la tabla hash.
+    2. Permite la creación de múltiples instancias de LinearHash para diferentes configuraciones de c_max.
+
 
 ## Requisitos
 
@@ -16,7 +70,7 @@ Este proyecto contiene los archivos necesarios para poder realizar búsquedas en
 
 4. Ir a la carpeta src\main\java\hash.
 
-5. Abrir el archivo Main.java, configurar qué tamaño de input se quiere utilizar y dónde se quieren guardar los resultados (Más información dentro de la documentación del archivo).
+5. Abrir el archivo Main.java, configurar qué tamaño de input se quiere utilizar (ajustar variable potencia dentro del for)  y dónde se quieren guardar los resultados (Más información dentro de la documentación del archivo).
 
 6. Ejecutar el archivo Main.java (Recomendación: Ejecutar el programa en el IDE IntelliJ)
 
@@ -27,5 +81,5 @@ Este proyecto contiene los archivos necesarios para poder realizar búsquedas en
 #Autores
 
 - Evelyn Ávila
--
--
+- Nicolas del Valle
+- Vicente López

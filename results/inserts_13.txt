@@ -1,0 +1,60 @@
+C_max 1
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0.7817077338714927%
++++++++++++++++++++++++++++++++++++++++++
+C_max 2
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 0.781453437276219%
++++++++++++++++++++++++++++++++++++++++++
+C_max 3
+Accesos Promedio Reales: 3
+Porcentaje Promedio Llenado: 92.23484848484848%
++++++++++++++++++++++++++++++++++++++++++
+C_max 4
+Accesos Promedio Reales: 4
+Porcentaje Promedio Llenado: 97.73065476190476%
++++++++++++++++++++++++++++++++++++++++++
+C_max 5
+Accesos Promedio Reales: 5
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 8
+Accesos Promedio Reales: 7
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10
+Accesos Promedio Reales: 10
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 20
+Accesos Promedio Reales: 18
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 40
+Accesos Promedio Reales: 36
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 60
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 500
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 1000
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 10000
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 1000000
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++
+C_max 1000000000
+Accesos Promedio Reales: 44
+Porcentaje Promedio Llenado: 100.0%
++++++++++++++++++++++++++++++++++++++++++

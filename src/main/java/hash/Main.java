@@ -29,7 +29,7 @@ public class Main {
     //Hacemos un for sobre el size y agregamos numeros distintos random
     for (int j = 1; j < size+1; j++) {
       long x = (long) random.nextInt(size-1) + 1;
-      write.write("inputs/numbers.txt", Long.toString(j));
+      write.write("inputs/numbers.txt", Long.toString(x));
     }
   }
 
@@ -45,6 +45,30 @@ public class Main {
 
     return hashes;
   }
+
+  /**
+   * Crea la lista de c_max a probar
+   */
+  public static void createCMax() {
+    // Definir c_max según los tamaños de prueba
+    c_max_test.add(1);
+    c_max_test.add(2);
+    c_max_test.add(3);
+    c_max_test.add(4);
+    c_max_test.add(5);
+    c_max_test.add(8);
+    c_max_test.add(10);
+    c_max_test.add(20);
+    c_max_test.add(40);
+    c_max_test.add(60);
+    c_max_test.add(500);
+    c_max_test.add(1000);
+    c_max_test.add(10000);
+    c_max_test.add(1000000);
+    c_max_test.add(1000000000);
+  }
+
+
 
   /**
    * Toma la lista de 2^i números y los inserta al Hash Lineal para
@@ -69,12 +93,13 @@ public class Main {
       // Se considera % llenado de páginas vs actAvgAccess
       write.write(filename, "C_max " + c_max_test.get(i));
       write.write(filename, "Accesos Promedio Reales: " + act_hash.actAvgAccess);
-      write.write(filename, "Porcentaje Promedio Llenado: " + act_hash.avgFillPct + "%");
+      write.write(filename, "Porcentaje Promedio Llenado: " + act_hash.calculateAvgFillPct() + "%");
       write.write(filename, "+++++++++++++++++++++++++++++++++++++++++");
 
       System.out.println("Inserciones c_max" + c_max_test.get(i) + "listas");
     }
   }
+
 
   /**
    * Ejecuta los tests para generar los árboles desde 2^10 hasta 2^25 y realizar 100 queries
@@ -85,30 +110,36 @@ public class Main {
     // el proceso es bastante largo y sería innecesario (por esto se deja comentado)
     // Generamos los numeros para 2^potencia (Se realiza 1 vez por potencia testeada)
     // Basta crear un archivo para 24 y para testear el resto, se lee hasta la línea 2^i
-    //generateTestingNumbers(24);
+    // generateTestingNumbers(24);
 
     //-----TESTEO PARA INPUT DE TAMAÑO 2^potencia-----
     // Creamos los c_max
-    // createCMax();
+    createCMax();
 
     // Se lee el listado de números del archivo 'numbers_i.txt' para obtener los 2^i
     // puntos de testeo, se guardarán en la variable numbers
 
-    int potencia = 10;
-    int N = (int) Math.pow(2,potencia);
+    for (int potencia = 10; potencia <= 24; potencia++) {
+      int N = (int) Math.pow(2, potencia);
 
-    // Crea los hashes para todos los c_max
-    createHashes(N);
+      // Asignamos la lista generada por createHashes a la variable global hashes
+      hashes.clear(); // Limpiamos la lista global de hashes antes de añadir nuevos
+      hashes.addAll(createHashes(N)); // Añadimos los hashes generados
 
-    reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
-    System.out.println("Números creados");
+      reader.read("inputs/numbers.txt", numbers, (int) Math.pow(2,potencia));
+      System.out.println("Números creados");
 
-    // Creamos el nombre del archivo donde se guardarán los resultados de la potencia
-    String filename = "results/inserts_" + potencia + ".txt";
+      // Creamos el nombre del archivo donde se guardarán los resultados de la potencia
+      String filename = "results/inserts_" + potencia + ".txt";
 
-    //Realizamos las inserciones
-    System.out.println("Inicio inserciones");
-    insertTesting(filename);
-    System.out.println("Inserciones listas");
+      //Realizamos las inserciones
+      System.out.println("Inicio inserciones para potencia: " + potencia);
+      insertTesting(filename);
+      System.out.println("Inserciones listas para potencia: " + potencia);
+
+
+
+  }
   }
 }
+
