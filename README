@@ -1,3 +1,4 @@
+
 # Tarea 1 : Hashing Lineal
 
 Este proyecto implementa una simulación de hashing lineal para analizar su eficiencia bajo distintas configuraciones de hiperparámetros. El objetivo es medir el costo real de inserciones y compararlo con un costo máximo controlado durante la operación de inserción, así como analizar la relación entre el llenado de las páginas y el costo de realizar estas operaciones.
